@@ -1,19 +1,12 @@
-language: rust
+language: generic
 sudo: false
 cache: false
 os: linux
 arch: 
   - s390x
-  - arm64
-  - amd64
-  - ppc64le
-rust: 
-  - stable
-  - nightly
-  - beta
 
 script:
-  - cargo run --verbose
+  - ./test_s390x
 
 notifications:
   email:
