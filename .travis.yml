@@ -1,12 +1,20 @@
-language: generic
+language: rust
 sudo: false
 cache: false
 os: linux
+dist: bionic
+rust:
+  - stable
+  - beta
+  - nightly
 arch: 
   - s390x
 
 script:
-  - ./test_s390x
+  # - ./test_s390x
+  - lsb_release -a
+  - openssl version || true
+  - RUST_BACKTRACE=1 cargo run --verbose
 
 notifications:
   email:
